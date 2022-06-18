@@ -16,3 +16,8 @@ def index():
     #order_by=조회결과 정렬.desc=역순. 작성일시 순으로 조회하려면 desc 대신 asc().
     return render_template('question/question_list.html', question_list=question_list)
     # 템플릿 파일을 화면으로 렌더링 하는 함수. question_list.html이게 템플릿 파일.
+
+@bp.route('/detail/<int:question_id>/')
+def detail(question_id):
+    question = Question.query.get(question_id)
+    return render_template('question/question_detail.html', question=question)
