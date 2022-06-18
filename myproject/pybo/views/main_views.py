@@ -12,7 +12,6 @@ def hello_pybo():
 
 @bp.route('/')
 def index():
-    return 'Pybo index'
     question_list=Question.query.order_by(Question.create_date.desc())
     #order_by=조회결과 정렬.desc=역순. 작성일시 순으로 조회하려면 desc 대신 asc().
     return render_template('question/question_list.html', question_list=question_list)
