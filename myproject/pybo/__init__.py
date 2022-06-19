@@ -24,7 +24,9 @@ def create_app():
     #그래서 객체들을 create_app '밖'에서 생성하고, 이걸 앱에 등록할 때 create_app 함수에서 init_app 함수로 진행.
 
     #블루프린트
-    from .views import main_views
+    from .views import main_views, question_views, answer_views
     app.register_blueprint(main_views.bp)
+    app.register_blueprint(question_views.bp)
+    app.register_blueprint(answer_views.bp)
 
     return app
